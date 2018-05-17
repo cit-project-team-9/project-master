@@ -199,7 +199,7 @@ var generatePeople = (results) => {
 var sortReleaseDescending = (results) => {
     /**
      * @param {array} results - this is the list of results searched by user
-     * @return {string} - this is the sorted list of the results.
+     * @return {string} - this is the sorted list of the results (Descending).
      */
     var max = results.length;
     var sorted = [];
@@ -221,7 +221,7 @@ var sortReleaseDescending = (results) => {
 var sortReleaseAscending = (results) => {
     /**
      * @param {array} results - this is the list of results searched by user
-     * @return {string} - this is the sorted list of the results.
+     * @return {string} - this is the sorted list of the results (Ascending).
      */
     var max = results.length;
     var sorted = [];
@@ -243,7 +243,7 @@ var sortReleaseAscending = (results) => {
 var sortTitleDescending = (results) => {
     /**
      * @param {array} results - this is the list of results searched by user
-     * @return {string} - this is the sorted list of the results.
+     * @return {string} - this is the sorted list of the results (Descending).
      */
     var max = results.length;
     var sorted = [];
@@ -266,7 +266,7 @@ var sortTitleDescending = (results) => {
 var sortTitleAscending = (results) => {
     /**
      * @param {array} results - this is the list of results searched by user
-     * @return {string} - this is the sorted list of the results.
+     * @return {string} - this is the sorted list of the results (Ascending).
      */
     var max = results.length;
     var sorted = [];
