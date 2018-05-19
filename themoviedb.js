@@ -124,6 +124,7 @@ var parseResults = (results) => {
                 </form>
                 <form action="/write_review" enctype="application/json" method="get">
                     <input id="revIndex" name="revIndex" type="hidden" value=${i} />
+                    <input id= "revPush" name="revPush" type="hidden" value="yes" />
                     <input id="WriteReview" class="btn btn-danger wButton" action="/write_review" type="submit" value="Write Review" />
                 </form>
             </div>

@@ -294,12 +294,11 @@ app.post('/favorites', (request, response) => {
          */
         userFavorites.push(currentSearch[request.body.favIndex]);
         userFavorites = [...new Set(userFavorites.map(v => JSON.stringify(v)))].map(v => JSON.parse(v));
-        auth.setFavorites(userFavorites);
     } else {
         userFavorites.splice(request.body.favIndex, 1);
         userFavorites = [...new Set(userFavorites.map(v => JSON.stringify(v)))].map(v => JSON.parse(v));
-        auth.setFavorites(userFavorites);
     }
+    auth.setFavorites(userFavorites);
     response.render('favorites.hbs', {
         favorites: themoviedb.generateFavorites(userFavorites)
     });
@@ -371,12 +370,14 @@ app.post('/user_review', (request, response) => {
      * @param {Object} request - Express HTTP request object
      * @param {Object} response - Express HTTP response object
      */
-    var movie = currentSearch[request.body.revIndex];
-    console.log(movie);
-    movie.rating = request.body.movieRating;
-    movie.review = request.body.movieReview;
-    console.log(movie);
-    userReviews.push(movie);
+    if (request.body.revPush == 'yes') {
+        var movie = currentSearch[request.body.revIndex];
+        movie.rating = request.body.movieRating;
+        movie.review = request.body.movieReview;
+        userReviews.push(movie);
+    } else {
+        userReviews.splice(request.body.revIndex, 1);
+    }
     auth.setReviews(userReviews)
     response.render('user_review.hbs', {
         reviews: themoviedb.generateReviews(userReviews)
