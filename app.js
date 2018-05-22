@@ -391,7 +391,7 @@ app.post('/user_review', (request, response) => {
      */
     if (request.body.revPush == 'yes') {
         var movie = currentSearch[request.body.revIndex];
-        movie.rating = request.body.movieRating;
+        movie.rating = parseInt(request.body.movieRating);
         movie.review = request.body.movieReview;
         userReviews.push(movie);
     } else {

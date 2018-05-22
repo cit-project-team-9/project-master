@@ -342,9 +342,9 @@ var generateRankings = (movies) => {
         <div class="bg-light mDiv col-lg-3 col-md-4 col-xs-12">
             <img src='http://image.tmdb.org/t/p/w92/${movies[i].poster_path}' class="mb-3 mPoster img-thumbnail rounded float-left"/>
             <div class="p-3 text-dark mText">
-                <strong>Rank</strong>: ${i+1}/10<br>
+                <strong>Rank</strong>: ${i+1}<br>
                 <strong>Title</strong>: ${movies[i].title}<br>
-                <strong>Average Rating</strong>: ${movies[i].rating_avg}<br>
+                <strong>Average Rating</strong>: ${movies[i].rating_avg}/10<br>
                 <strong>Overview</strong>: ${overview}<br>
                 <strong>Release Date</strong>: ${movies[i].release_date}<br>
             </div>
