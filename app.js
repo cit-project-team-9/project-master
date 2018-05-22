@@ -349,7 +349,7 @@ app.get('/recommendations', (request, response) => {
             });
         } else {
             response.render('recommendations.hbs', {
-                recommendations: "<h2>No favorites found! Favorite at least one movie to generate recommendations.</h2>"
+                recommendations: "<h2 style='padding-left:4em'>No favorites found! Favorite at least one movie to generate recommendations.</h2>"
             });
         }
     } else {
