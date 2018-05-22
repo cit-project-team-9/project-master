@@ -1,12 +1,25 @@
 const bcrypt = require('bcrypt');
 const fs = require('fs');
 
+/**
+ * @type {int} - salt (random input data) for bCrypt hashing
+ */
 const saltRounds = 10;
 
-const filename = 'auth.json'; // holds all user data
+/**
+ * @type {String} - filename of user data
+ */
+const filename = 'auth.json';
 
-var users; // users loaded from file
-var currentName = ''; // current user's username
+/**
+ * @type {Object[]} - JSON user objects loaded from file
+ */
+var users;
+
+/**
+ * @type {String} - current username
+ */
+var currentName = '';
 
 
 /**
@@ -66,7 +79,8 @@ var store = (registerName, registerPw) => {
     var user = {
         username: registerName,
         password: hash,
-        favorites: []
+        favorites: [],
+        reviews: []
     };
     users.push(user);
     fs.writeFileSync(filename, JSON.stringify(users));
@@ -122,6 +136,35 @@ var setFavorites = (favorites) => {
     for (var i = 0; i < users.length; i++) {
         if (currentName === users[i].username)
             users[i].favorites = favorites;
+    }
+    fs.writeFileSync(filename, JSON.stringify(users));
+}
+
+/**
+ * this returns a list of the user's reviews
+ */
+var getReviews = () => {
+    /**
+     * @return {object} the current user's review list
+     */
+    for (var i = 0; i < users.length; i++) {
+        if (currentName === users[i].username)
+            return users[i].reviews;
+    }
+}
+
+
+/**
+ * select and set the current user's reviews
+ */
+var setReviews = (reviews) => {
+    /**
+     * @param {string} reviews - list of reviews to add
+     * @return {function} the function that writes(adds) the reviews to user json file.
+     */
+    for (var i = 0; i < users.length; i++) {
+        if (currentName === users[i].username)
+            users[i].reviews = reviews;
     }
     fs.writeFileSync(filename, JSON.stringify(users));
 }
@@ -196,6 +239,8 @@ module.exports = {
     check,
     getFavorites,
     setFavorites,
+    getReviews,
+    setReviews,
     logoff,
     isLogged,
     getCurrentName,
