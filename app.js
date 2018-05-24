@@ -349,7 +349,7 @@ app.get('/recommendations', (request, response) => {
             });
         } else {
             response.render('recommendations.hbs', {
-                recommendations: "<h2>No favorites found! Favorite at least one movie to generate recommendations.</h2>"
+                recommendations: "<h2 style='padding-left:4em'>No favorites found! Favorite at least one movie to generate recommendations.</h2>"
             });
         }
     } else {
@@ -391,7 +391,7 @@ app.post('/user_review', (request, response) => {
      */
     if (request.body.revPush == 'yes') {
         var movie = currentSearch[request.body.revIndex];
-        movie.rating = request.body.movieRating;
+        movie.rating = parseInt(request.body.movieRating);
         movie.review = request.body.movieReview;
         userReviews.push(movie);
     } else {
