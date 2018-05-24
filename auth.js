@@ -252,7 +252,7 @@ var sortTopMovies = () => {
             else {
                 var newMovie = JSON.parse(JSON.stringify(users[i].reviews[j]));
                 movies.push(newMovie);
-                movies[movies.length - 1].rating_sum = Number(movies[movies.length - 1].rating);
+                movies[movies.length - 1].rating_sum = parseFloat(movies[movies.length - 1].rating);
                 movies[movies.length - 1].rating_count = 1;
                 delete movies[movies.length - 1].rating;
                 delete movies[movies.length - 1].review; 
@@ -260,7 +260,7 @@ var sortTopMovies = () => {
         }
     }
     for (var l = 0; l < movies.length; l++) {
-        movies[l].rating_avg = movies[l].rating_sum / movies[l].rating_count;
+        movies[l].rating_avg = (movies[l].rating_sum / movies[l].rating_count).toFixed(2);
     }
     movies.sort(function(a, b){return b.rating_avg - a.rating_avg})
     return movies;

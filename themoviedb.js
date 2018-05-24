@@ -146,7 +146,7 @@ var generateFavorites = (favorites) => {
      */
     var generated = "";
     if (favorites.length < 1) {
-        return "<h2>No favorites have been saved!</h2>";
+        return "<h2 style='padding-left:4em'>No favorites have been saved!</h2>";
     }
     for (var i = 0; i < favorites.length; i++) {
         var overview = favorites[i].overview;
@@ -180,7 +180,7 @@ var generateReviews = (reviews) => {
      */
     var generated = "";
     if (reviews.length < 1) {
-        return "<h2>No reviews have been saved!</h2>";
+        return "<h2 style='padding-left:4em'>No reviews have been saved!</h2>";
     }
     for (var i = 0; i < reviews.length; i++) {
         generated += `
@@ -332,7 +332,7 @@ var generateRankings = (movies) => {
      */
     var generated = "";
     if (movies.length < 1) {
-        return "<h2>No ratings have been recorded!</h2>";
+        return "<h2 style='padding-left:4em'>No ratings have been recorded!</h2>";
     }
     for (var i = 0; i < movies.length; i++) {
         var overview = movies[i].overview;
@@ -342,9 +342,9 @@ var generateRankings = (movies) => {
         <div class="bg-light mDiv col-lg-3 col-md-4 col-xs-12">
             <img src='http://image.tmdb.org/t/p/w92/${movies[i].poster_path}' class="mb-3 mPoster img-thumbnail rounded float-left"/>
             <div class="p-3 text-dark mText">
-                <strong>Rank</strong>: ${i+1}/10<br>
+                <strong>Rank</strong>: ${i+1}<br>
                 <strong>Title</strong>: ${movies[i].title}<br>
-                <strong>Average Rating</strong>: ${movies[i].rating_avg}<br>
+                <strong>Average Rating</strong>: ${movies[i].rating_avg}/10<br>
                 <strong>Overview</strong>: ${overview}<br>
                 <strong>Release Date</strong>: ${movies[i].release_date}<br>
             </div>
