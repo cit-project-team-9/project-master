@@ -146,7 +146,7 @@ var generateFavorites = (favorites) => {
      */
     var generated = "";
     if (favorites.length < 1) {
-        return "<h2>No favorites have been saved!</h2>";
+        return "<h2 style='padding-left:4em'>No favorites have been saved!</h2>";
     }
     for (var i = 0; i < favorites.length; i++) {
         var overview = favorites[i].overview;
@@ -180,7 +180,7 @@ var generateReviews = (reviews) => {
      */
     var generated = "";
     if (reviews.length < 1) {
-        return "<h2>No reviews have been saved!</h2>";
+        return "<h2 style='padding-left:4em'>No reviews have been saved!</h2>";
     }
     for (var i = 0; i < reviews.length; i++) {
         generated += `
@@ -332,7 +332,7 @@ var generateRankings = (movies) => {
      */
     var generated = "";
     if (movies.length < 1) {
-        return "<h2>No ratings have been recorded!</h2>";
+        return "<h2 style='padding-left:4em'>No ratings have been recorded!</h2>";
     }
     for (var i = 0; i < movies.length; i++) {
         var overview = movies[i].overview;

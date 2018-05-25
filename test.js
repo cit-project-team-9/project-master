@@ -125,7 +125,7 @@ describe("Testing themoviedb.js...", ()=>{
 
 	//GenerateFavorites Testing
 	test("Test generateFavorites with no favorites", (done)=>{
-		expect(mdb.generateFavorites([])).toBe('<h2>No favorites have been saved!</h2>')
+		expect(mdb.generateFavorites([])).toBe("<h2 style='padding-left:4em'>No favorites have been saved!</h2>")
 		done();
 	})
 
