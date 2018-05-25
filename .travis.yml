@@ -4,6 +4,6 @@ node_js:
 deploy:
   provider: heroku
   api_key:
-    secure: "0c4b4c38-ee2a-4083-aae3-4a1c390b1b1c"
+    secure: "0971da84-0e52-4eaf-b59a-c5ef1b7498e5"
   app: mymovielist-cit
   strategy: git
