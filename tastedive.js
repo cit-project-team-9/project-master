@@ -3,7 +3,7 @@ const request = require('request');
 /**
  * @type {String} - Tastedive API key
  */
-var key = '302969-StudentP-ITG1R8RP';
+var key = process.env.TASTEDIVE_KEY;
 
 
 /**
