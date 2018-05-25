@@ -1,3 +1,9 @@
 language: node_js
 node_js:
  - "node"
+deploy:
+  provider: heroku
+  api_key:
+    secure: "0971da84-0e52-4eaf-b59a-c5ef1b7498e5"
+  app: cit-mymovielist
+  strategy: git
