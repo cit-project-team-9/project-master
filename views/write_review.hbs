@@ -10,20 +10,20 @@
 
 <body>
     <div id="bannerAndNav" class="container-fluid bg-dark">
-        <div id="banner" class="row bg-dark text-white "><div id="banner-text">Write Review</div></div>
+        <div id="banner" class="row bg-dark text-white"><div id="banner-text">Write Review</div></div>
         <div id="navigationDiv" class="row navbar bg-dark">{{> navigation}}</div>
     </div>
     <div class="contentDiv container-fluid bg-dark img-fluid" id="writePage">
-        <div id="writeDiv">
-            <div class="row text-white" id="banner-text">{{{movietitle}}}</div>
-            <img src='http://image.tmdb.org/t/p/w92/{{{movieposter}}}' />
+        <div id="writeDiv" class="bg-dark rounded">
+            <p class="text-light text-center reviewTitle"><strong>Title: </strong>{{{movietitle}}}</p>
+            <img class="img-fluid img-thumbnail reviewImg" src='http://image.tmdb.org/t/p/w92/{{{movieposter}}}' />
             <form id="userReview" action="/user_review" enctype="application/json" method="post">
                 <input name="revIndex" id="revIndex" value={{{revIndex}}} type="hidden" />
                 <input name="revPush" id="revPush" value="yes" type="hidden" />
-                <div class="row text-white" id="banner-text">Movie Rating (0-10)</div>
+                <div class="ratingLabel text-white">Movie Rating (0-10)</div>
                 <input type="number" id="movieRating" name="movieRating" min="0" max="10" value="0" />
                 <textarea name="movieReview" id="movieReview" form="userReview" placeholder="Write review here..." style="width:"></textarea>
-                <input type="submit" value="Submit" />
+                <input class="reviewSubmit btn btn-danger" type="submit" value="Submit" />
             </form>
         </div>
     </div>
